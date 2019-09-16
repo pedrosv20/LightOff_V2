@@ -17,10 +17,10 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = GameScene(fileNamed: "GameScene"){
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+                scene.controller = self
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -44,7 +44,7 @@ class GameViewController: UIViewController {
         }
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+        return UIRectEdge.all
     }
 }
